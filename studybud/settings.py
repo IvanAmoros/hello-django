@@ -39,6 +39,8 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 
 	'base.apps.BaseConfig',
+
+	 'social_django',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,44 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#  THIRD PARTY APY AUTH
+
+AUTHENTICATION_BACKENDS = (
+	# 'social_core.backends.oauth.OAuthAuth',
+	'base.backends.Slug42OAuth2',
+	'social_core.backends.google.GoogleOAuth2',
+	'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/gmail.readonly']
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '783186248272-rvseh11bthjboenm7k83n1qr0t2atldp.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
+
+# 42
+SOCIAL_AUTH_OAUTH2_42_KEY = 'u-s4t2ud-c243f702176ac2fd6d528047d4501505d39c54201dfe1535380c2e3cfedc60f1'
+SOCIAL_AUTH_OAUTH2_42_SECRET = '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'
+
+SOCIAL_AUTH_OAUTH2_42_SCOPE = ['public']
+
+# SOCIAL_AUTH_42_KEY = 'u-s4t2ud-c243f702176ac2fd6d528047d4501505d39c54201dfe1535380c2e3cfedc60f1'
+# SOCIAL_AUTH_42_SECRET = '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'
+
+# SOCIAL_AUTH_42_SCOPE = ['public']
+
+# SOCIAL_AUTH_42_EXTRA_DATA = ['picture', 'cursus_users']
+
+# Redirect URI is typically generated automatically based on your Django project's URL configuration
+# SOCIAL_AUTH_42_REDIRECT_URI = 'http://localhost:8000/social-auth/complete/42/'
+# https://api.intra.42.fr/oauth/authorize?client_id=None&redirect_uri=http://localhost:8000/social-auth/complete/oauth2-42/&state=S1H4strQLkGmEsqhcdFSpDoK8SJimUkb&response_type=code
+# https://api.intra.42.fr/oauth/authorize?client_id=None&redirect_uri=http://localhost:8000/social-auth/complete/oauth2-42/&state=tod5RpLCIT3DpaN6OeRWD5R5Vu6bAy5M&response_type=code
+# https://api.intra.42.fr/oauth/authorize?client_id=None&redirect_uri=http://localhost:8000/social-auth/complete/oauth2-42/&state=uVKqFtVqJqPpocSrUd8qqAvbyucevTDS&response_type=code
+# http://localhost:8000/social-auth/complete/oauth2-42/?code=529a6d5d0bcc3eb3a8d7785c425e3305c93f1601d56b82972f076d6c90f4f31e&state=pELcOAa238cTT3UgpbAeYOCqUAVfiKFu

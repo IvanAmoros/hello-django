@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+
 
 urlpatterns = [
 	path('login/', views.loginPage, name="login"),
@@ -14,4 +15,6 @@ urlpatterns = [
 	path('update-room/<str:pk>', views.updateRoom, name="update-room"),
 	path('delete-room/<str:pk>', views.deleteRoom, name="delete-room"),
 	path('delete-message/<str:pk>', views.deleteMessage, name="delete-message"),
+
+	path('social-auth/', include('social_django.urls', namespace='social')),
 ]
